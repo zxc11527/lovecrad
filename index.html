@@ -29,7 +29,7 @@
       min-height: 100vh;
     }
 
-    /* 頂部按鈕區 */
+    /* 頂部按鈕區 (模擬圖片上方的按鈕) */
     .top-bar {
       display: flex;
       justify-content: center;
@@ -112,25 +112,20 @@
 <body>
 
   <div class="app-container">
-    <!-- 頂部標籤 -->
     <div class="top-bar">
       <div class="mode-badge">💻 本機模式</div>
     </div>
 
-    <!-- 集點卡主體 -->
     <div class="reward-card">
       <div class="card-header">
-        <!-- 這裡的文字可以自己修改成你要的暱稱喔 -->
-        <h1 class="card-title">專屬寶貝集點卡</h1>
-        <p class="child-name">給最可愛的女友</p>
+        <h1 class="card-title">INYA寶貝的集點卡</h1>
+        <p class="child-name">小朋友姓名：壞壞</p>
       </div>
       
       <hr class="divider">
 
-      <!-- 放置 30 個圈圈的容器 -->
       <div class="points-grid" id="grid-container">
-        <!-- 這裡的圓圈會由下方的 JavaScript 自動生成 -->
-      </div>
+        </div>
     </div>
   </div>
 
@@ -139,7 +134,7 @@
     const gridContainer = document.getElementById('grid-container');
     const totalPoints = 30; // 總共 30 點
 
-    // 用迴圈一次產生 30 個圓圈
+    // 用迴圈一次產生 30 個圓圈，不用手寫 30 次 HTML
     for (let i = 1; i <= totalPoints; i++) {
       // 建立 div 元素
       const circle = document.createElement('div');
