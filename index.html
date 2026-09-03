@@ -22,8 +22,10 @@
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 850; letter-spacing: -.04em; }
     .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 14px; color: white; background: var(--rose); box-shadow: 0 8px 18px rgba(199, 68, 69, .23); font-size: 19px; }
     .top-actions { display: flex; align-items: center; gap: 8px; }
-    .save-state { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; color: #6c554b; background: #f5eadf; font-size: 12px; font-weight: 650; }
-    .save-dot { width: 7px; height: 7px; border-radius: 50%; background: #eacb84; }
+    .save-state { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; color: #4b6c55; background: #dff5e6; font-size: 12px; font-weight: 650; }
+    .save-dot { width: 7px; height: 7px; border-radius: 50%; background: #4b9b68; box-shadow: 0 0 6px #4b9b68; }
+    .save-state.offline { color: #6c554b; background: #f5eadf; }
+    .save-state.offline .save-dot { background: #9b5a4b; box-shadow: none; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid transparent; min-height: 42px; padding: 0 17px; border-radius: 12px; color: white; background: var(--rose); font-weight: 780; transition: transform .16s ease, background .16s ease, box-shadow .16s ease; }
     .btn:hover { background: var(--rose-deep); box-shadow: 0 8px 18px rgba(199, 68, 69, .16); } .btn:active { transform: scale(.97); }
     .btn.secondary { color: #7d403a; background: #fff9f1; border-color: #e4c5b6; } .btn.secondary:hover { background: #fbece3; box-shadow: none; }
@@ -57,7 +59,8 @@
     .mobile-nav { display: none; } .modal-wrap { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; padding: 18px; background: rgba(62, 35, 29, .32); } .modal-wrap.open { display: grid; } .modal { width: min(480px, 100%); max-height: min(700px, 92vh); overflow: auto; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: 0 24px 70px rgba(62, 35, 29, .24); } .modal-head { display: flex; justify-content: space-between; gap: 15px; } .modal-head h2 { margin: 0; } .field { margin-top: 17px; } .field label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 780; } .field input, .field textarea { width: 100%; border: 1px solid #e5d2c5; border-radius: 11px; padding: 11px 12px; color: var(--ink); background: #fffdfa; outline: none; } .field textarea { min-height: 90px; resize: vertical; } .field-help { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
     .upload-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 17px; } .upload-box { position: relative; padding: 14px; border: 1px dashed #d6ad9e; border-radius: 14px; color: #815047; background: #fff7ef; text-align: left; } .upload-box:hover { background: #ffede1; } .upload-box input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; } .upload-box strong { display: block; margin-top: 6px; font-size: 13px; } .upload-box span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; } .modal-foot { display: flex; justify-content: end; gap: 8px; margin-top: 24px; }
     .toast { position: fixed; right: 20px; bottom: 20px; z-index: 80; transform: translateY(18px); opacity: 0; pointer-events: none; padding: 12px 15px; border: 1px solid #e7cbbb; border-radius: 13px; color: #65443b; background: #fff9f2; box-shadow: var(--shadow); font-size: 13px; transition: opacity .18s ease, transform .18s ease; } .toast.show { transform: translateY(0); opacity: 1; }
-    @media (max-width: 820px) { .shell { width: min(100% - 28px, 600px); } .topbar-inner { height: 62px; } .page-head { padding: 26px 0 19px; } .page-head h1 { font-size: 29px; } .grid { grid-template-columns: 1fr; gap: 16px; } .stamp-card, .paper { padding: 18px; } .stamp-grid { gap: 8px; margin-top: 21px; } .stamp-slot { border-radius: 11px; } .card-actions { margin-top: 17px; } .gift-list { grid-template-columns: 1fr; } .split-row { margin-top: 16px; } .recent { margin-bottom: 66px; } .mobile-nav { position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 30; display: flex; padding: 5px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255, 253, 249, .95); box-shadow: 0 14px 36px rgba(75, 48, 43, .13); backdrop-filter: blur(12px); } .mobile-nav button { flex: 1; border: 0; border-radius: 12px; padding: 8px 5px; color: var(--muted); background: transparent; font-size: 10px; font-weight: 750; } .mobile-nav button.active { color: var(--rose); background: #fae9df; } .mobile-nav-icon { display: block; margin-bottom: 2px; font-size: 15px; } }
+    .setup { display: none; padding: 80px 0; } .setup.visible { display: block; } .setup-card { width: min(540px, 100%); margin: 0 auto; padding: 29px; } .setup-card h1 { margin-top: 12px; font-size: 33px; } .setup-card p { color: var(--muted); line-height: 1.8; } .hidden { display: none !important; }
+    @media (max-width: 820px) { .shell { width: min(100% - 28px, 600px); } .topbar-inner { height: 62px; } .save-state { display: none; } .page-head { padding: 26px 0 19px; } .page-head h1 { font-size: 29px; } .grid { grid-template-columns: 1fr; gap: 16px; } .stamp-card, .paper { padding: 18px; } .stamp-grid { gap: 8px; margin-top: 21px; } .stamp-slot { border-radius: 11px; } .card-actions { margin-top: 17px; } .gift-list { grid-template-columns: 1fr; } .split-row { margin-top: 16px; } .recent { margin-bottom: 66px; } .mobile-nav { position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 30; display: flex; padding: 5px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255, 253, 249, .95); box-shadow: 0 14px 36px rgba(75, 48, 43, .13); backdrop-filter: blur(12px); } .mobile-nav button { flex: 1; border: 0; border-radius: 12px; padding: 8px 5px; color: var(--muted); background: transparent; font-size: 10px; font-weight: 750; } .mobile-nav button.active { color: var(--rose); background: #fae9df; } .mobile-nav-icon { display: block; margin-bottom: 2px; font-size: 15px; } }
     @media (max-width: 430px) { .top-actions .btn { padding: 0 10px; font-size: 12px; } .page-head { align-items: start; flex-direction: column; gap: 12px; } .members { align-self: end; } .progress-row { gap: 10px; } .progress-count { min-width: 74px; } .progress-count strong { font-size: 18px; } .upload-grid { grid-template-columns: 1fr; } .modal { padding: 20px; } }
   </style>
 </head>
@@ -66,7 +69,7 @@
     <div class="shell topbar-inner">
       <div class="brand"><span class="brand-mark">♥</span><span>兩人一心</span></div>
       <div class="top-actions">
-        <span class="save-state" id="cloudStatus"><span class="save-dot"></span>🟡 連線中...</span>
+        <span id="syncStatus" class="save-state offline"><span class="save-dot"></span>連線中...</span>
         <button class="btn secondary small" id="openSettings">⚙ 自訂</button>
         <button class="btn small" id="openGift">＋ 新增禮物</button>
       </div>
@@ -101,7 +104,7 @@
       <article id="rewardSection" class="card paper nav-section">
         <div class="section-head"><div><p class="eyebrow">NEXT LITTLE JOY</p><h2>下一個小獎勵</h2></div><span class="section-icon">🎁</span></div>
         <div id="nextGift"></div>
-        <div class="sync-note">♡ <span>資料已透過雲端即時同步，彼此都會馬上看到更新。</span></div>
+        <div class="sync-note">♡ <span id="syncText">等待雲端資料同步中...</span></div>
       </article>
     </section>
 
@@ -121,20 +124,20 @@
 
   <nav class="mobile-nav" aria-label="頁面導覽"><button class="active" data-target="cardSection"><span class="mobile-nav-icon">♥</span>卡片</button><button data-target="rewardSection"><span class="mobile-nav-icon">🎁</span>兌換</button><button data-target="historySection"><span class="mobile-nav-icon">◷</span>紀錄</button></nav>
 
-  <div id="settingsModal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div id="settingsModal" class="modal-wrap" role="dialog" aria-modal="true">
     <div class="modal">
       <div class="modal-head"><div><p class="eyebrow">MAKE IT YOURS</p><h2 id="settingsTitle">自訂我們的集點卡</h2></div><button class="btn ghost icon close-modal" data-close="settingsModal" aria-label="關閉">×</button></div>
       <div class="field"><label for="settingsTitleInput">卡片名稱</label><input id="settingsTitleInput" maxlength="40" placeholder="例如：我們的週末約會"></div>
       <div class="field"><label for="settingsTotalInput">集滿需要幾枚印章？</label><input id="settingsTotalInput" type="number" min="4" max="40"><p class="field-help">可設定 4–40 枚；如果減少格數，現有點數會自動調整到上限。</p></div>
       <div class="upload-grid">
-        <label class="upload-box">▧<strong>上傳卡片底圖</strong><span>建議 300KB 以下</span><input id="backgroundUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+        <label class="upload-box">▧<strong>上傳卡片底圖</strong><span>自動壓縮，無容量限制</span><input id="backgroundUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
         <label class="upload-box">✦<strong>上傳多款集章圖案</strong><span>可按住選取多張圖案</span><input id="stampUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple></label>
       </div>
       <div class="modal-foot"><button class="btn secondary close-modal" data-close="settingsModal">取消</button><button class="btn" id="saveSettings">儲存設定</button></div>
     </div>
   </div>
 
-  <div id="giftModal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="giftTitleModal">
+  <div id="giftModal" class="modal-wrap" role="dialog" aria-modal="true">
     <div class="modal">
       <div class="modal-head"><div><p class="eyebrow">A LITTLE WISH</p><h2 id="giftTitleModal">新增兌換禮物</h2></div><button class="btn ghost icon close-modal" data-close="giftModal" aria-label="關閉">×</button></div>
       <form id="giftForm">
@@ -148,84 +151,86 @@
 
   <div id="toast" class="toast" role="status"></div>
 
-  <!-- 改用 module 匯入 Firebase SDK -->
+  <!-- 引入 Firebase SDK (模組化版本) -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // 你的 Firebase 金鑰
+    // ==========================================
+    // ⚠️ 請把下面這段替換成你 Firebase 專案的金鑰 ⚠️
+    // ==========================================
     const firebaseConfig = {
-      apiKey: "AIzaSyBxQH33-vClTSgRzGLdWrDzR5isyC--IWE",
-      authDomain: "lovecard-1a9da.firebaseapp.com",
-      projectId: "lovecard-1a9da",
-      storageBucket: "lovecard-1a9da.firebasestorage.app",
-      messagingSenderId: "825679183776",
-      appId: "1:825679183776:web:c98b2e26c2f0ce08e22ec5",
-      measurementId: "G-58T9YYYDVG"
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abcdefg"
     };
 
+    // 初始化 Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    const cardRef = doc(db, "cards", "our-exclusive-card");
+    const cardDocRef = doc(db, "reward-cards", "couple-card-01"); // 你們專屬的雲端檔案名稱
 
-    const defaultState = {
-      title: "我們的小約定", total: 10, current: 7, background: "", stampImages: [],
-      gifts: [
-        { id: "g1", title: "一起吃甜點", note: "挑一個不趕時間的週末下午", cost: 8 },
-        { id: "g2", title: "看一場電影", note: "今晚的片單由對方決定", cost: 10 }
-      ],
+    const $ = id => document.getElementById(id);
+    let editingGiftId = null;
+    let toastTimer = null;
+    let isConnected = false;
+    
+    // 預設資料結構
+    let state = {
+      title: "我們的小約定", total: 10, current: 0, background: "", stampImages: [],
+      gifts: [{ id: "g1", title: "一起吃甜點", note: "挑一個不趕時間的週末下午", cost: 8 }],
       history: [], redemptions: []
     };
 
-    const $ = id => document.getElementById(id);
-    const clone = value => JSON.parse(JSON.stringify(value));
-    let state = clone(defaultState);
-    let editingGiftId = null;
-    let toastTimer = null;
-
-    // 即時監聽雲端資料庫變化
-    onSnapshot(cardRef, (docSnap) => {
-      if (docSnap.exists()) {
-        state = Object.assign(clone(defaultState), docSnap.data());
-        if(!state.stampImages) state.stampImages = []; 
-      } else {
-        // 如果是第一次打開，幫資料庫塞入預設值
-        setDoc(cardRef, defaultState);
-      }
-      $("cloudStatus").innerHTML = '<span class="save-dot" style="background:#4b9b68"></span>🟢 已連線雲端同步';
-      render();
-    }, (error) => {
-      console.error(error);
-      $("cloudStatus").innerHTML = '<span class="save-dot" style="background:#c74445"></span>🔴 連線失敗';
-    });
-
-    // 將資料推送到雲端
-    async function saveState() {
-      try {
-        const dataStr = JSON.stringify(state);
-        // Firebase 單一文件上限為 1MB，檢查上傳圖片是否過大
-        if (dataStr.length > 900000) {
-          showToast("儲存失敗！圖片檔案太大，請換小一點的圖片（建議 100KB 內）。", true);
-          return false;
-        }
-        await setDoc(cardRef, state, { merge: true });
-        return true;
-      } catch (error) {
-        showToast("同步失敗，請檢查網路連線。", true);
-        return false;
-      }
-    }
-
-    // --- 以下為 UI 渲染與邏輯操作 ---
     function uid(prefix) { return prefix + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
     function escapeHTML(value) { return String(value ?? "").replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char])); }
     function formatDate(value) { const date = new Date(value); if (Number.isNaN(date.getTime())) return "剛剛"; return new Intl.DateTimeFormat("zh-TW", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }).format(date); }
     
-    function showToast(message, danger) {
+    function showToast(message, danger = false) {
       const toast = $("toast"); toast.textContent = message; toast.style.color = danger ? "#9e3d38" : "#65443b";
       toast.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
     }
-    
+
+    // 將資料寫入 Firebase 雲端
+    async function saveState() {
+      if (!isConnected) { showToast("尚未連線到雲端，請檢查網路連線", true); return false; }
+      try {
+        await setDoc(cardDocRef, state);
+        return true;
+      } catch (error) {
+        console.error(error);
+        showToast("儲存失敗！請嘗試重整網頁。", true);
+        return false;
+      }
+    }
+
+    // 監聽 Firebase 雲端資料變化 (即時同步核心)
+    onSnapshot(cardDocRef, (docSnap) => {
+      if (docSnap.exists()) {
+        state = Object.assign(state, docSnap.data());
+      } else {
+        // 如果雲端沒有資料，就上傳一份預設的
+        setDoc(cardDocRef, state);
+      }
+      
+      // 更新連線狀態 UI
+      isConnected = true;
+      $("syncStatus").classList.remove("offline");
+      $("syncStatus").innerHTML = '<span class="save-dot"></span>已連線雲端同步';
+      $("syncText").textContent = "資料已透過雲端即時同步，彼此都會馬上看到更新。";
+      
+      render();
+    }, (error) => {
+      console.error("Firebase 連線錯誤:", error);
+      $("syncStatus").classList.add("offline");
+      $("syncStatus").innerHTML = '<span class="save-dot"></span>離線模式';
+      $("syncText").textContent = "無法連線至雲端，請檢查設定檔或網路。";
+    });
+
+    // 畫面繪製邏輯
     function render() {
       $("cardTitle").textContent = state.title || "我們的小約定";
       $("currentCount").textContent = String(state.current).padStart(2, "0");
@@ -236,15 +241,15 @@
       
       const stampCard = $("stampCard");
       stampCard.classList.toggle("has-background", Boolean(state.background));
-      stampCard.style.backgroundImage = state.background ? "url('" + state.background.replace(/'/g, "\\'") + "')" : "";
+      stampCard.style.backgroundImage = state.background ? "url('" + state.background + "')" : "";
       
       $("stampGrid").innerHTML = Array.from({ length: state.total }, (_, index) => {
         const filled = index < state.current;
         let content = '<span style="width:6px;height:6px;border-radius:50%;background:rgba(189,130,117,.45)"></span>';
         if (filled) {
           if (state.stampImages && state.stampImages.length > 0) {
-            const imgSrc = state.stampImages[index % state.stampImages.length];
-            content = '<img class="stamp-image" src="' + escapeHTML(imgSrc) + '" alt="已集得的印章">';
+            const imgSrc = state.stampImages[index % state.stampImages.length]; 
+            content = '<img class="stamp-image" src="' + escapeHTML(imgSrc) + '" alt="印章">';
           } else {
             content = '<span class="stamp-heart">♥</span>';
           }
@@ -256,73 +261,106 @@
       $("removeStamp").disabled = state.current <= 0;
       $("addStamp").disabled = state.current >= state.total;
     }
-    
-    function renderNextGift() { 
+
+    function renderNextGift() {
       const gifts = state.gifts.slice().sort((a, b) => a.cost - b.cost); const next = gifts.find(gift => gift.cost > state.current) || gifts[0]; const container = $("nextGift");
       if (!next) { container.innerHTML = '<div class="empty" style="margin-top:22px">還沒有兌換禮物。<br>替你們設定一份期待吧。</div>'; return; }
       const remaining = Math.max(0, next.cost - state.current);
       container.innerHTML = '<div class="next-gift"><div class="gift-line"><div><h3>' + escapeHTML(next.title) + '</h3>' + (next.note ? '<p class="gift-note">' + escapeHTML(next.note) + '</p>' : '') + '</div><span class="cost">' + next.cost + ' 點</span></div></div><p class="next-copy">' + (remaining ? '再集 <strong>' + remaining + ' 枚</strong>，就能解鎖這份小心意。' : '你們已經集滿，現在就可以兌換囉。') + '</p><button class="btn full" data-redeem="' + escapeHTML(next.id) + '" ' + (state.current < next.cost ? "disabled" : "") + '>' + (state.current < next.cost ? "還差 " + remaining + " 枚" : "現在兌換") + '</button>';
     }
+    
     function renderGifts() {
       const list = $("giftList"); if (!state.gifts.length) { list.innerHTML = '<div class="empty" style="grid-column:1/-1">設定一份期待，為每一次集章多一點期待。</div>'; return; }
       list.innerHTML = state.gifts.map(gift => '<article class="gift-item"><div class="gift-item-head"><span class="gift-icon">🎁</span><span class="cost">' + gift.cost + ' 點</span></div><h3 style="margin-top:12px">' + escapeHTML(gift.title) + '</h3><p class="gift-note">' + escapeHTML(gift.note || "") + '</p><div class="gift-controls"><button class="btn small" data-redeem="' + escapeHTML(gift.id) + '" ' + (state.current < gift.cost ? "disabled" : "") + '>兌換</button><button class="btn ghost small" data-edit="' + escapeHTML(gift.id) + '">✎</button><button class="btn ghost small" data-delete="' + escapeHTML(gift.id) + '" aria-label="移除">×</button></div></article>').join("");
     }
+    
     function renderHistory() {
       const list = $("historyList"); const items = state.history.slice(0, 8); if (!items.length) { list.innerHTML = '<p class="empty">第一枚集章，從今天的小約定開始。</p>'; return; }
       list.innerHTML = items.map(item => { const redeem = item.type === "redeem"; return '<div class="history-item ' + (redeem ? "redeem" : "") + '"><span class="history-marker">' + (redeem ? "🎁" : "♥") + '</span><div class="history-text"><p><strong>' + (redeem ? "你們" : "你") + '</strong> ' + escapeHTML(item.note) + '</p><small>' + formatDate(item.at) + (item.delta ? " " + (item.delta > 0 ? "+" : "") + item.delta + " 點" : "") + '</small></div></div>'; }).join("");
     }
+    
     function renderRecent() {
       const pills = $("recentPills"); if (!state.redemptions.length) { pills.innerHTML = '<span class="recent-pill">還沒有兌換紀錄</span>'; return; }
       pills.innerHTML = state.redemptions.slice(0, 5).map(item => '<span class="recent-pill">' + escapeHTML(item.title) + ' −' + item.cost + '</span>').join("");
     }
-    
+
     function openModal(id) { $(id).classList.add("open"); } function closeModal(id) { $(id).classList.remove("open"); }
     function fillSettings() { $("settingsTitleInput").value = state.title; $("settingsTotalInput").value = state.total; }
     function openGiftModal(gift) { editingGiftId = gift ? gift.id : null; $("giftTitleModal").textContent = gift ? "編輯兌換禮物" : "新增兌換禮物"; $("giftNameInput").value = gift ? gift.title : ""; $("giftCostInput").value = gift ? gift.cost : 5; $("giftNoteInput").value = gift ? gift.note || "" : ""; $("saveGift").textContent = gift ? "儲存變更" : "加入兌換清單"; openModal("giftModal"); setTimeout(() => $("giftNameInput").focus(), 30); }
     function addHistory(type, delta, note) { state.history.unshift({ id: uid("h"), type, delta, note, at: new Date().toISOString() }); if (state.history.length > 50) state.history.length = 50; }
-    
+
     function changeStamp(direction) {
       const next = direction === "add" ? Math.min(state.total, state.current + 1) : Math.max(0, state.current - 1);
-      if (next === state.current) { showToast(direction === "add" ? "集點卡已經集滿囉。" : "目前沒有可撤銷的點數。", true); return; }
+      if (next === state.current) return;
       const delta = next - state.current; state.current = next;
       const note = $("stampNote").value.trim() || (delta > 0 ? "集了一點小美好" : "撤銷了一枚集章");
       addHistory(delta > 0 ? "add" : "remove", delta, note); $("stampNote").value = "";
-      render(); saveState(); showToast(delta > 0 ? "已集一枚，這份心意已同步。" : "已撤銷一枚集章。 ");
+      saveState(); showToast(delta > 0 ? "已集一枚，同步中..." : "已撤銷一枚集章。 ");
     }
-    
+
     function redeem(id) {
       const gift = state.gifts.find(item => item.id === id); if (!gift) return;
       if (state.current < gift.cost) { showToast("集章還不夠，再累積一些小美好吧。", true); return; }
       if (!window.confirm("確定要兌換「" + gift.title + "」嗎？會使用 " + gift.cost + " 點。")) return;
       state.current -= gift.cost; addHistory("redeem", -gift.cost, "兌換了「" + gift.title + "」");
       state.redemptions.unshift({ id: uid("r"), title: gift.title, cost: gift.cost, at: new Date().toISOString() });
-      render(); saveState(); showToast("已兌換「" + gift.title + "」，剩下 " + state.current + " 點。 ");
+      saveState(); showToast("已兌換「" + gift.title + "」！");
     }
 
-    function readBgImage(file) {
+    // ==========================================
+    // 🖼️ 核心：圖片自動壓縮功能 (Canvas)
+    // ==========================================
+    function compressImage(file, maxWidth, maxHeight, quality = 0.7) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = event => {
+          const img = new Image();
+          img.src = event.target.result;
+          img.onload = () => {
+            let width = img.width;
+            let height = img.height;
+            // 等比例縮小
+            if (width > maxWidth || height > maxHeight) {
+              const ratio = Math.min(maxWidth / width, maxHeight / height);
+              width *= ratio; height *= ratio;
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = width; canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            // 轉成體積極小的 WebP 格式
+            resolve(canvas.toDataURL('image/webp', quality));
+          };
+          img.onerror = error => reject(error);
+        };
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    // 處理底圖 (壓縮到最大 1000px，畫質 0.6)
+    async function readBgImage(file) {
       if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => { state.background = String(reader.result); render(); saveState(); showToast("底圖已同步。"); };
-      reader.readAsDataURL(file);
+      showToast("圖片處理中，請稍後...");
+      try {
+        state.background = await compressImage(file, 1000, 1000, 0.6);
+        saveState(); showToast("底圖已更新且壓縮完成！");
+      } catch (e) { showToast("圖片壓縮失敗", true); }
     }
 
+    // 處理多款印章圖案 (壓縮到最大 250px，畫質 0.8)
     async function readMultipleStamps(files) {
       if (!files || files.length === 0) return;
-      const fileArray = Array.from(files);
-      const readPromises = fileArray.map(file => {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => resolve(String(reader.result));
-          reader.onerror = reject;
-          reader.readAsDataURL(file);
-        });
-      });
+      showToast("印章壓縮處理中...");
       try {
-        state.stampImages = await Promise.all(readPromises);
-        render(); saveState(); showToast(`成功同步 ${state.stampImages.length} 款印章圖案！`);
-      } catch (error) { showToast("讀取圖片失敗，請換一張試試看。", true); }
+        const fileArray = Array.from(files);
+        const compressPromises = fileArray.map(file => compressImage(file, 250, 250, 0.8));
+        state.stampImages = await Promise.all(compressPromises);
+        saveState(); showToast(`成功載入並壓縮 ${state.stampImages.length} 款印章！`);
+      } catch (e) { showToast("印章圖片處理失敗", true); }
     }
 
+    // 綁定事件監聽器
     $("addStamp").addEventListener("click", () => changeStamp("add"));
     $("removeStamp").addEventListener("click", () => changeStamp("remove"));
     $("openSettings").addEventListener("click", () => { fillSettings(); openModal("settingsModal"); });
@@ -337,30 +375,28 @@
       if (!title) { showToast("請輸入卡片名稱。", true); return; }
       if (!Number.isInteger(total) || total < 4 || total > 40) { showToast("集點格數請設定為 4–40 枚。", true); return; }
       state.title = title; state.total = total; state.current = Math.min(state.current, total);
-      render(); saveState(); closeModal("settingsModal"); showToast("卡片設定已同步。 ");
+      saveState(); closeModal("settingsModal"); showToast("卡片設定已更新。 ");
     });
     
     $("giftForm").addEventListener("submit", event => {
       event.preventDefault(); const title = $("giftNameInput").value.trim(); const cost = Number($("giftCostInput").value); const note = $("giftNoteInput").value.trim();
       if (!title || !Number.isInteger(cost) || cost < 1 || cost > 99) { showToast("請填寫禮物名稱與正確的兌換點數。", true); return; }
-      if (editingGiftId) { const gift = state.gifts.find(item => item.id === editingGiftId); if (gift) Object.assign(gift, { title, cost, note }); showToast("禮物設定已同步。 "); } 
-      else { state.gifts.push({ id: uid("g"), title, cost, note }); showToast("新的兌換禮物已加入。 "); }
-      render(); saveState(); closeModal("giftModal");
+      if (editingGiftId) { const gift = state.gifts.find(item => item.id === editingGiftId); if (gift) Object.assign(gift, { title, cost, note }); } 
+      else { state.gifts.push({ id: uid("g"), title, cost, note }); }
+      saveState(); closeModal("giftModal"); showToast("兌換禮物已更新。");
     });
     
     document.addEventListener("click", event => {
       const redeemBtn = event.target.closest("[data-redeem]"); const editBtn = event.target.closest("[data-edit]"); const deleteBtn = event.target.closest("[data-delete]"); const closeBtn = event.target.closest("[data-close]");
       if (redeemBtn) redeem(redeemBtn.getAttribute("data-redeem"));
       if (editBtn) openGiftModal(state.gifts.find(item => item.id === editBtn.getAttribute("data-edit")));
-      if (deleteBtn) { const gift = state.gifts.find(item => item.id === deleteBtn.getAttribute("data-delete")); if (gift && window.confirm("確定要移除「" + gift.title + "」嗎？")) { state.gifts = state.gifts.filter(item => item.id !== gift.id); render(); saveState(); showToast("已從兌換清單移除。 "); } }
+      if (deleteBtn) { const gift = state.gifts.find(item => item.id === deleteBtn.getAttribute("data-delete")); if (gift && window.confirm("確定要移除「" + gift.title + "」嗎？")) { state.gifts = state.gifts.filter(item => item.id !== gift.id); saveState(); } }
       if (closeBtn) closeModal(closeBtn.getAttribute("data-close"));
       if (event.target.classList.contains("modal-wrap")) closeModal(event.target.id);
     });
     
     document.addEventListener("keydown", event => { if (event.key === "Escape") { closeModal("settingsModal"); closeModal("giftModal"); } });
     document.querySelectorAll(".mobile-nav button").forEach(button => button.addEventListener("click", () => { document.getElementById(button.dataset.target).scrollIntoView({ behavior: "smooth", block: "start" }); document.querySelectorAll(".mobile-nav button").forEach(item => item.classList.remove("active")); button.classList.add("active"); }));
-    
-    render();
   </script>
 </body>
 </html>
