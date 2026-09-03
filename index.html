@@ -7,189 +7,58 @@
   <title>兩人一心｜情侶電子集點卡</title>
   <style>
     :root {
-      --cream: #fffaf1;
-      --paper: #fffdf9;
-      --ink: #4b302b;
-      --muted: #896c62;
-      --line: #ead7ca;
-      --rose: #c74445;
-      --rose-deep: #a73c3c;
-      --rose-soft: #f9dfd8;
-      --peach: #f9e9dc;
-      --gold: #eacb84;
-      --gold-ink: #735020;
+      --cream: #fffaf1; --paper: #fffdf9; --ink: #4b302b; --muted: #896c62; --line: #ead7ca;
+      --rose: #c74445; --rose-deep: #a73c3c; --rose-soft: #f9dfd8; --peach: #f9e9dc;
+      --gold: #eacb84; --gold-ink: #735020;
       --shadow: 0 18px 48px rgba(113, 68, 50, .11), 0 2px 4px rgba(113, 68, 50, .05);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
+      --radius-xl: 28px; --radius-lg: 20px; --radius-md: 14px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-width: 320px;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 4% 0%, rgba(246, 207, 180, .36), transparent 28rem),
-        radial-gradient(circle at 96% 9%, rgba(248, 208, 207, .34), transparent 26rem),
-        var(--cream);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      line-height: 1.5;
-    }
-    button, input, textarea { font: inherit; }
-    button { cursor: pointer; }
-    button:disabled { cursor: not-allowed; opacity: .48; }
-    img { max-width: 100%; }
+    * { box-sizing: border-box; } html { scroll-behavior: smooth; }
+    body { margin: 0; min-width: 320px; color: var(--ink); background: radial-gradient(circle at 4% 0%, rgba(246, 207, 180, .36), transparent 28rem), radial-gradient(circle at 96% 9%, rgba(248, 208, 207, .34), transparent 26rem), var(--cream); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; line-height: 1.5; }
+    button, input, textarea { font: inherit; } button { cursor: pointer; } button:disabled { cursor: not-allowed; opacity: .48; } img { max-width: 100%; }
     .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 20;
-      border-bottom: 1px solid rgba(234, 215, 202, .78);
-      background: rgba(255, 253, 249, .86);
-      backdrop-filter: blur(18px);
-    }
+    .topbar { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(234, 215, 202, .78); background: rgba(255, 253, 249, .86); backdrop-filter: blur(18px); }
     .topbar-inner { height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 850; letter-spacing: -.04em; }
     .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 14px; color: white; background: var(--rose); box-shadow: 0 8px 18px rgba(199, 68, 69, .23); font-size: 19px; }
     .top-actions { display: flex; align-items: center; gap: 8px; }
     .save-state { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; color: #6c554b; background: #f5eadf; font-size: 12px; font-weight: 650; }
-    .save-dot { width: 7px; height: 7px; border-radius: 50%; background: #4b9b68; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      border: 1px solid transparent; min-height: 42px; padding: 0 17px; border-radius: 12px;
-      color: white; background: var(--rose); font-weight: 780; transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
-    }
-    .btn:hover { background: var(--rose-deep); box-shadow: 0 8px 18px rgba(199, 68, 69, .16); }
-    .btn:active { transform: scale(.97); }
-    .btn.secondary { color: #7d403a; background: #fff9f1; border-color: #e4c5b6; }
-    .btn.secondary:hover { background: #fbece3; box-shadow: none; }
-    .btn.ghost { color: var(--muted); background: transparent; border-color: transparent; }
-    .btn.ghost:hover { color: var(--rose); background: #f9e9df; box-shadow: none; }
-    .btn.small { min-height: 34px; padding: 0 11px; border-radius: 10px; font-size: 12px; }
-    .btn.icon { width: 38px; padding: 0; }
+    .save-dot { width: 7px; height: 7px; border-radius: 50%; background: #eacb84; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid transparent; min-height: 42px; padding: 0 17px; border-radius: 12px; color: white; background: var(--rose); font-weight: 780; transition: transform .16s ease, background .16s ease, box-shadow .16s ease; }
+    .btn:hover { background: var(--rose-deep); box-shadow: 0 8px 18px rgba(199, 68, 69, .16); } .btn:active { transform: scale(.97); }
+    .btn.secondary { color: #7d403a; background: #fff9f1; border-color: #e4c5b6; } .btn.secondary:hover { background: #fbece3; box-shadow: none; }
+    .btn.ghost { color: var(--muted); background: transparent; border-color: transparent; } .btn.ghost:hover { color: var(--rose); background: #f9e9df; box-shadow: none; }
+    .btn.small { min-height: 34px; padding: 0 11px; border-radius: 10px; font-size: 12px; } .btn.icon { width: 38px; padding: 0; }
     .eyebrow { margin: 0; color: #a44d48; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
     .page-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 38px 0 24px; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { margin-bottom: 0; font-size: clamp(28px, 4vw, 43px); line-height: 1.16; letter-spacing: -.06em; }
-    h2 { margin: 8px 0 0; font-size: 22px; line-height: 1.2; letter-spacing: -.045em; }
-    h3 { margin-bottom: 0; font-size: 16px; line-height: 1.3; }
-    .members { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
-    .avatars { display: flex; padding-left: 5px; }
-    .avatar { display: grid; place-items: center; width: 33px; height: 33px; margin-left: -5px; border: 2px solid var(--paper); border-radius: 50%; color: #813b36; background: #edbcb4; font-size: 12px; font-weight: 850; }
-    .avatar:nth-child(2) { color: #76531c; background: #f2d28a; }
+    h1, h2, h3, p { margin-top: 0; } h1 { margin-bottom: 0; font-size: clamp(28px, 4vw, 43px); line-height: 1.16; letter-spacing: -.06em; } h2 { margin: 8px 0 0; font-size: 22px; line-height: 1.2; letter-spacing: -.045em; } h3 { margin-bottom: 0; font-size: 16px; line-height: 1.3; }
+    .members { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; } .avatars { display: flex; padding-left: 5px; } .avatar { display: grid; place-items: center; width: 33px; height: 33px; margin-left: -5px; border: 2px solid var(--paper); border-radius: 50%; color: #813b36; background: #edbcb4; font-size: 12px; font-weight: 850; } .avatar:nth-child(2) { color: #76531c; background: #f2d28a; }
     .grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 24px; }
     .card { border: 1px solid var(--line); border-radius: var(--radius-xl); background: rgba(255, 253, 249, .93); box-shadow: var(--shadow); }
-    .stamp-card { position: relative; overflow: hidden; padding: 26px; background: linear-gradient(135deg, #f9ddd5 0%, #f7e0cd 50%, #f8c6c4 100%); }
-    .stamp-card.has-background { background-size: cover; background-position: center; }
-    .stamp-card.has-background::before { content: ""; position: absolute; inset: 0; background: rgba(255, 248, 239, .78); }
-    .stamp-card > * { position: relative; }
+    .stamp-card { position: relative; overflow: hidden; padding: 26px; background: linear-gradient(135deg, #f9ddd5 0%, #f7e0cd 50%, #f8c6c4 100%); } .stamp-card.has-background { background-size: cover; background-position: center; } .stamp-card.has-background::before { content: ""; position: absolute; inset: 0; background: rgba(255, 248, 239, .78); } .stamp-card > * { position: relative; }
     .stamp-orbit { position: absolute; right: -49px; top: -52px; width: 170px; height: 170px; border: 20px solid rgba(255, 247, 233, .62); border-radius: 50%; }
-    .card-head, .section-head { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
-    .card-head h2 { font-size: clamp(23px, 3vw, 32px); }
+    .card-head, .section-head { display: flex; align-items: start; justify-content: space-between; gap: 16px; } .card-head h2 { font-size: clamp(23px, 3vw, 32px); }
     .stamp-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
     .stamp-slot { display: grid; place-items: center; aspect-ratio: 1; border: 1.5px dashed rgba(160, 105, 90, .52); border-radius: 15px; background: rgba(255, 250, 244, .42); }
     .stamp-slot.filled { border-style: solid; border-color: rgba(181, 75, 68, .35); background: rgba(255, 235, 227, .76); }
-    .stamp-heart { color: #b74c45; font-size: clamp(22px, 3vw, 31px); line-height: 1; }
-    .stamp-image { width: 54%; height: 54%; object-fit: contain; }
-    .progress-row { display: flex; align-items: end; gap: 18px; margin-top: 25px; }
-    .progress-count { min-width: 86px; }
-    .progress-count small, .progress-meta { display: block; color: #865e54; font-size: 11px; }
-    .progress-count strong { display: block; margin-top: 2px; color: #51312c; font-size: 21px; }
-    .progress-track { flex: 1; margin-bottom: 4px; }
-    .track { height: 8px; overflow: hidden; border-radius: 999px; background: rgba(255, 250, 244, .75); }
-    .track > span { display: block; height: 100%; width: 0; border-radius: inherit; background: #b94d46; transition: width .25s ease; }
-    .progress-meta { margin-top: 7px; text-align: right; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; }
-    .card-actions { display: flex; gap: 9px; margin-top: 21px; }
-    .card-actions .btn:first-child { flex: 1; }
-    .tip-input { width: 100%; margin-top: 16px; border: 1px solid rgba(218, 170, 156, .74); border-radius: 10px; padding: 10px 12px; color: var(--ink); background: rgba(255, 251, 246, .72); outline: none; }
-    .tip-input:focus, .field input:focus, .field textarea:focus { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(199, 68, 69, .11); }
-    .paper { padding: 25px; }
-    .section-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; color: #ae4b43; background: #f8e0d7; font-size: 20px; }
-    .next-gift { margin-top: 24px; padding: 17px; border-radius: 16px; background: #fff3e8; }
-    .gift-line { display: flex; justify-content: space-between; gap: 12px; }
-    .gift-note { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
-    .cost { display: inline-flex; align-items: center; height: fit-content; padding: 5px 9px; border-radius: 999px; color: var(--gold-ink); background: #f2d89e; font-size: 11px; font-weight: 850; white-space: nowrap; }
-    .next-copy { margin: 15px 0 0; color: var(--muted); font-size: 13px; }
-    .next-copy strong { color: #a6433c; }
-    .full { width: 100%; margin-top: 17px; }
+    .stamp-heart { color: #b74c45; font-size: clamp(22px, 3vw, 31px); line-height: 1; } .stamp-image { width: 54%; height: 54%; object-fit: contain; }
+    .progress-row { display: flex; align-items: end; gap: 18px; margin-top: 25px; } .progress-count { min-width: 86px; } .progress-count small, .progress-meta { display: block; color: #865e54; font-size: 11px; } .progress-count strong { display: block; margin-top: 2px; color: #51312c; font-size: 21px; }
+    .progress-track { flex: 1; margin-bottom: 4px; } .track { height: 8px; overflow: hidden; border-radius: 999px; background: rgba(255, 250, 244, .75); } .track > span { display: block; height: 100%; width: 0; border-radius: inherit; background: #b94d46; transition: width .25s ease; } .progress-meta { margin-top: 7px; text-align: right; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; }
+    .card-actions { display: flex; gap: 9px; margin-top: 21px; } .card-actions .btn:first-child { flex: 1; }
+    .tip-input { width: 100%; margin-top: 16px; border: 1px solid rgba(218, 170, 156, .74); border-radius: 10px; padding: 10px 12px; color: var(--ink); background: rgba(255, 251, 246, .72); outline: none; } .tip-input:focus, .field input:focus, .field textarea:focus { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(199, 68, 69, .11); }
+    .paper { padding: 25px; } .section-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; color: #ae4b43; background: #f8e0d7; font-size: 20px; }
+    .next-gift { margin-top: 24px; padding: 17px; border-radius: 16px; background: #fff3e8; } .gift-line { display: flex; justify-content: space-between; gap: 12px; } .gift-note { margin: 5px 0 0; color: var(--muted); font-size: 12px; } .cost { display: inline-flex; align-items: center; height: fit-content; padding: 5px 9px; border-radius: 999px; color: var(--gold-ink); background: #f2d89e; font-size: 11px; font-weight: 850; white-space: nowrap; }
+    .next-copy { margin: 15px 0 0; color: var(--muted); font-size: 13px; } .next-copy strong { color: #a6433c; } .full { width: 100%; margin-top: 17px; }
     .sync-note { display: flex; align-items: center; gap: 8px; margin: 20px 0 0; padding-top: 17px; border-top: 1px solid #efe0d5; color: var(--muted); font-size: 11px; }
-    .split-row { margin-top: 24px; }
-    .gift-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
-    .gift-item { padding: 15px; border: 1px solid #efded2; border-radius: 16px; background: #fffdf9; }
-    .gift-item .gift-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 12px; color: #ae4b43; background: #f8e4d7; }
-    .gift-item-head { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
-    .gift-item .gift-note { min-height: 18px; }
-    .gift-controls { display: flex; align-items: center; gap: 3px; margin-top: 13px; }
-    .gift-controls .btn:first-child { margin-right: auto; }
-    .history-list { margin-top: 20px; }
-    .history-item { display: flex; gap: 10px; padding-bottom: 16px; }
-    .history-marker { position: relative; display: grid; flex: 0 0 31px; place-items: center; width: 31px; height: 31px; border-radius: 50%; color: #ae4b43; background: #f7ded7; font-size: 13px; }
-    .history-item:not(:last-child) .history-marker::after { content: ""; position: absolute; left: 50%; top: 34px; width: 1px; height: 18px; background: #ead8cb; }
-    .history-item.redeem .history-marker { color: #80601d; background: #f2dfad; }
-    .history-text { min-width: 0; padding-top: 1px; }
-    .history-text p { margin: 0; color: #60423a; font-size: 13px; }
-    .history-text small { display: block; margin-top: 3px; color: #977b70; font-size: 10px; }
-    .recent { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 15px 20px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 249, 241, .72); color: var(--muted); font-size: 12px; }
-    .recent strong { color: var(--ink); }
-    .recent-pills { display: flex; gap: 7px; overflow-x: auto; white-space: nowrap; }
-    .recent-pill { padding: 5px 10px; border-radius: 999px; background: #f2e2d3; }
-    .bottom-space { height: 30px; }
-    .empty { padding: 28px 10px; border: 1px dashed #dfc5b5; border-radius: 15px; color: var(--muted); text-align: center; font-size: 13px; }
-    .mobile-nav { display: none; }
-    .modal-wrap { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; padding: 18px; background: rgba(62, 35, 29, .32); }
-    .modal-wrap.open { display: grid; }
-    .modal { width: min(480px, 100%); max-height: min(700px, 92vh); overflow: auto; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: 0 24px 70px rgba(62, 35, 29, .24); }
-    .modal-head { display: flex; justify-content: space-between; gap: 15px; }
-    .modal-head h2 { margin: 0; }
-    .field { margin-top: 17px; }
-    .field label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 780; }
-    .field input, .field textarea { width: 100%; border: 1px solid #e5d2c5; border-radius: 11px; padding: 11px 12px; color: var(--ink); background: #fffdfa; outline: none; }
-    .field textarea { min-height: 90px; resize: vertical; }
-    .field-help { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
-    .upload-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 17px; }
-    .upload-box { position: relative; padding: 14px; border: 1px dashed #d6ad9e; border-radius: 14px; color: #815047; background: #fff7ef; text-align: left; }
-    .upload-box:hover { background: #ffede1; }
-    .upload-box input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
-    .upload-box strong { display: block; margin-top: 6px; font-size: 13px; }
-    .upload-box span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
-    .modal-foot { display: flex; justify-content: end; gap: 8px; margin-top: 24px; }
-    .toast { position: fixed; right: 20px; bottom: 20px; z-index: 80; transform: translateY(18px); opacity: 0; pointer-events: none; padding: 12px 15px; border: 1px solid #e7cbbb; border-radius: 13px; color: #65443b; background: #fff9f2; box-shadow: var(--shadow); font-size: 13px; transition: opacity .18s ease, transform .18s ease; }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .setup { display: none; padding: 80px 0; }
-    .setup.visible { display: block; }
-    .setup-card { width: min(540px, 100%); margin: 0 auto; padding: 29px; }
-    .setup-card h1 { margin-top: 12px; font-size: 33px; }
-    .setup-card p { color: var(--muted); line-height: 1.8; }
-    .hidden { display: none !important; }
-    @media (max-width: 820px) {
-      .shell { width: min(100% - 28px, 600px); }
-      .topbar-inner { height: 62px; }
-      .save-state { display: none; }
-      .page-head { padding: 26px 0 19px; }
-      .page-head h1 { font-size: 29px; }
-      .grid { grid-template-columns: 1fr; gap: 16px; }
-      .stamp-card, .paper { padding: 18px; }
-      .stamp-grid { gap: 8px; margin-top: 21px; }
-      .stamp-slot { border-radius: 11px; }
-      .card-actions { margin-top: 17px; }
-      .gift-list { grid-template-columns: 1fr; }
-      .split-row { margin-top: 16px; }
-      .recent { margin-bottom: 66px; }
-      .mobile-nav { position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 30; display: flex; padding: 5px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255, 253, 249, .95); box-shadow: 0 14px 36px rgba(75, 48, 43, .13); backdrop-filter: blur(12px); }
-      .mobile-nav button { flex: 1; border: 0; border-radius: 12px; padding: 8px 5px; color: var(--muted); background: transparent; font-size: 10px; font-weight: 750; }
-      .mobile-nav button.active { color: var(--rose); background: #fae9df; }
-      .mobile-nav-icon { display: block; margin-bottom: 2px; font-size: 15px; }
-    }
-    @media (max-width: 430px) {
-      .top-actions .btn { padding: 0 10px; font-size: 12px; }
-      .page-head { align-items: start; flex-direction: column; gap: 12px; }
-      .members { align-self: end; }
-      .progress-row { gap: 10px; }
-      .progress-count { min-width: 74px; }
-      .progress-count strong { font-size: 18px; }
-      .upload-grid { grid-template-columns: 1fr; }
-      .modal { padding: 20px; }
-    }
+    .split-row { margin-top: 24px; } .gift-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; } .gift-item { padding: 15px; border: 1px solid #efded2; border-radius: 16px; background: #fffdf9; } .gift-item .gift-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 12px; color: #ae4b43; background: #f8e4d7; } .gift-item-head { display: flex; align-items: start; justify-content: space-between; gap: 10px; } .gift-item .gift-note { min-height: 18px; } .gift-controls { display: flex; align-items: center; gap: 3px; margin-top: 13px; } .gift-controls .btn:first-child { margin-right: auto; }
+    .history-list { margin-top: 20px; } .history-item { display: flex; gap: 10px; padding-bottom: 16px; } .history-marker { position: relative; display: grid; flex: 0 0 31px; place-items: center; width: 31px; height: 31px; border-radius: 50%; color: #ae4b43; background: #f7ded7; font-size: 13px; } .history-item:not(:last-child) .history-marker::after { content: ""; position: absolute; left: 50%; top: 34px; width: 1px; height: 18px; background: #ead8cb; } .history-item.redeem .history-marker { color: #80601d; background: #f2dfad; } .history-text { min-width: 0; padding-top: 1px; } .history-text p { margin: 0; color: #60423a; font-size: 13px; } .history-text small { display: block; margin-top: 3px; color: #977b70; font-size: 10px; }
+    .recent { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 15px 20px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 249, 241, .72); color: var(--muted); font-size: 12px; } .recent strong { color: var(--ink); } .recent-pills { display: flex; gap: 7px; overflow-x: auto; white-space: nowrap; } .recent-pill { padding: 5px 10px; border-radius: 999px; background: #f2e2d3; }
+    .bottom-space { height: 30px; } .empty { padding: 28px 10px; border: 1px dashed #dfc5b5; border-radius: 15px; color: var(--muted); text-align: center; font-size: 13px; }
+    .mobile-nav { display: none; } .modal-wrap { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; padding: 18px; background: rgba(62, 35, 29, .32); } .modal-wrap.open { display: grid; } .modal { width: min(480px, 100%); max-height: min(700px, 92vh); overflow: auto; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: 0 24px 70px rgba(62, 35, 29, .24); } .modal-head { display: flex; justify-content: space-between; gap: 15px; } .modal-head h2 { margin: 0; } .field { margin-top: 17px; } .field label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 780; } .field input, .field textarea { width: 100%; border: 1px solid #e5d2c5; border-radius: 11px; padding: 11px 12px; color: var(--ink); background: #fffdfa; outline: none; } .field textarea { min-height: 90px; resize: vertical; } .field-help { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
+    .upload-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 17px; } .upload-box { position: relative; padding: 14px; border: 1px dashed #d6ad9e; border-radius: 14px; color: #815047; background: #fff7ef; text-align: left; } .upload-box:hover { background: #ffede1; } .upload-box input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; } .upload-box strong { display: block; margin-top: 6px; font-size: 13px; } .upload-box span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; } .modal-foot { display: flex; justify-content: end; gap: 8px; margin-top: 24px; }
+    .toast { position: fixed; right: 20px; bottom: 20px; z-index: 80; transform: translateY(18px); opacity: 0; pointer-events: none; padding: 12px 15px; border: 1px solid #e7cbbb; border-radius: 13px; color: #65443b; background: #fff9f2; box-shadow: var(--shadow); font-size: 13px; transition: opacity .18s ease, transform .18s ease; } .toast.show { transform: translateY(0); opacity: 1; }
+    @media (max-width: 820px) { .shell { width: min(100% - 28px, 600px); } .topbar-inner { height: 62px; } .page-head { padding: 26px 0 19px; } .page-head h1 { font-size: 29px; } .grid { grid-template-columns: 1fr; gap: 16px; } .stamp-card, .paper { padding: 18px; } .stamp-grid { gap: 8px; margin-top: 21px; } .stamp-slot { border-radius: 11px; } .card-actions { margin-top: 17px; } .gift-list { grid-template-columns: 1fr; } .split-row { margin-top: 16px; } .recent { margin-bottom: 66px; } .mobile-nav { position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 30; display: flex; padding: 5px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255, 253, 249, .95); box-shadow: 0 14px 36px rgba(75, 48, 43, .13); backdrop-filter: blur(12px); } .mobile-nav button { flex: 1; border: 0; border-radius: 12px; padding: 8px 5px; color: var(--muted); background: transparent; font-size: 10px; font-weight: 750; } .mobile-nav button.active { color: var(--rose); background: #fae9df; } .mobile-nav-icon { display: block; margin-bottom: 2px; font-size: 15px; } }
+    @media (max-width: 430px) { .top-actions .btn { padding: 0 10px; font-size: 12px; } .page-head { align-items: start; flex-direction: column; gap: 12px; } .members { align-self: end; } .progress-row { gap: 10px; } .progress-count { min-width: 74px; } .progress-count strong { font-size: 18px; } .upload-grid { grid-template-columns: 1fr; } .modal { padding: 20px; } }
   </style>
 </head>
 <body>
@@ -197,7 +66,7 @@
     <div class="shell topbar-inner">
       <div class="brand"><span class="brand-mark">♥</span><span>兩人一心</span></div>
       <div class="top-actions">
-        <span class="save-state"><span class="save-dot"></span>只儲存在這台裝置</span>
+        <span class="save-state" id="cloudStatus"><span class="save-dot"></span>🟡 連線中...</span>
         <button class="btn secondary small" id="openSettings">⚙ 自訂</button>
         <button class="btn small" id="openGift">＋ 新增禮物</button>
       </div>
@@ -232,7 +101,7 @@
       <article id="rewardSection" class="card paper nav-section">
         <div class="section-head"><div><p class="eyebrow">NEXT LITTLE JOY</p><h2>下一個小獎勵</h2></div><span class="section-icon">🎁</span></div>
         <div id="nextGift"></div>
-        <div class="sync-note">♡ <span>這是離線單機版，資料只會儲存在目前瀏覽器。</span></div>
+        <div class="sync-note">♡ <span>資料已透過雲端即時同步，彼此都會馬上看到更新。</span></div>
       </article>
     </section>
 
@@ -248,10 +117,6 @@
     </section>
     <div id="recentBar" class="recent"><strong>最近兌換</strong><div id="recentPills" class="recent-pills"></div></div>
     <div class="bottom-space"></div>
-
-    <section id="setup" class="setup">
-      <div class="card setup-card"><p class="eyebrow">START YOUR KEEPSAKE</p><h1>先替你們的卡片取個名字。</h1><p>這個單機版會把設定、圖片、點數與禮物清單保存於目前瀏覽器。你可以在「自訂」中隨時更換設計。</p><button class="btn" id="startSetup">開始設定</button></div>
-    </section>
   </main>
 
   <nav class="mobile-nav" aria-label="頁面導覽"><button class="active" data-target="cardSection"><span class="mobile-nav-icon">♥</span>卡片</button><button data-target="rewardSection"><span class="mobile-nav-icon">🎁</span>兌換</button><button data-target="historySection"><span class="mobile-nav-icon">◷</span>紀錄</button></nav>
@@ -262,8 +127,8 @@
       <div class="field"><label for="settingsTitleInput">卡片名稱</label><input id="settingsTitleInput" maxlength="40" placeholder="例如：我們的週末約會"></div>
       <div class="field"><label for="settingsTotalInput">集滿需要幾枚印章？</label><input id="settingsTotalInput" type="number" min="4" max="40"><p class="field-help">可設定 4–40 枚；如果減少格數，現有點數會自動調整到上限。</p></div>
       <div class="upload-grid">
-        <label class="upload-box">▧<strong>上傳卡片底圖</strong><span>JPG、PNG、WebP，建議 3 MB 以下</span><input id="backgroundUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
-        <label class="upload-box">✦<strong>上傳集章圖案</strong><span>建議使用透明背景 PNG</span><input id="stampUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+        <label class="upload-box">▧<strong>上傳卡片底圖</strong><span>建議 300KB 以下</span><input id="backgroundUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+        <label class="upload-box">✦<strong>上傳多款集章圖案</strong><span>可按住選取多張圖案</span><input id="stampUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple></label>
       </div>
       <div class="modal-foot"><button class="btn secondary close-modal" data-close="settingsModal">取消</button><button class="btn" id="saveSettings">儲存設定</button></div>
     </div>
@@ -283,238 +148,219 @@
 
   <div id="toast" class="toast" role="status"></div>
 
-  <script>
-    (function () {
-      "use strict";
-      const STORAGE_KEY = "couple-stamp-card-standalone-v1";
-      const defaultState = {
-        title: "我們的小約定",
-        total: 10,
-        current: 7,
-        background: "",
-        stamp: "",
-        gifts: [
-          { id: "g1", title: "一起吃甜點", note: "挑一個不趕時間的週末下午", cost: 8 },
-          { id: "g2", title: "看一場電影", note: "今晚的片單由對方決定", cost: 10 },
-          { id: "g3", title: "小小驚喜", note: "一份不先說出口的心意", cost: 15 }
-        ],
-        history: [
-          { id: "h1", type: "add", delta: 1, note: "集了一點小美好", at: "2026-09-01T09:30:00" },
-          { id: "h2", type: "add", delta: 1, note: "完成了一起散步", at: "2026-08-31T14:10:00" },
-          { id: "h3", type: "redeem", delta: -3, note: "兌換了「一起喝杯咖啡」", at: "2026-08-29T12:00:00" }
-        ],
-        redemptions: [{ id: "r1", title: "一起喝杯咖啡", cost: 3, at: "2026-08-29T12:00:00" }]
-      };
-      const $ = id => document.getElementById(id);
-      const clone = value => JSON.parse(JSON.stringify(value));
-      let state = loadState();
-      let editingGiftId = null;
-      let toastTimer = null;
-      function loadState() {
-        try {
-          const saved = localStorage.getItem(STORAGE_KEY);
-          if (!saved) return clone(defaultState);
-          const parsed = JSON.parse(saved);
-          return Object.assign(clone(defaultState), parsed, {
-            gifts: Array.isArray(parsed.gifts) ? parsed.gifts : clone(defaultState.gifts),
-            history: Array.isArray(parsed.history) ? parsed.history : [],
-            redemptions: Array.isArray(parsed.redemptions) ? parsed.redemptions : []
-          });
-        } catch (error) {
-          return clone(defaultState);
-        }
+  <!-- 改用 module 匯入 Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // 你的 Firebase 金鑰
+    const firebaseConfig = {
+      apiKey: "AIzaSyBxQH33-vClTSgRzGLdWrDzR5isyC--IWE",
+      authDomain: "lovecard-1a9da.firebaseapp.com",
+      projectId: "lovecard-1a9da",
+      storageBucket: "lovecard-1a9da.firebasestorage.app",
+      messagingSenderId: "825679183776",
+      appId: "1:825679183776:web:c98b2e26c2f0ce08e22ec5",
+      measurementId: "G-58T9YYYDVG"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const cardRef = doc(db, "cards", "our-exclusive-card");
+
+    const defaultState = {
+      title: "我們的小約定", total: 10, current: 7, background: "", stampImages: [],
+      gifts: [
+        { id: "g1", title: "一起吃甜點", note: "挑一個不趕時間的週末下午", cost: 8 },
+        { id: "g2", title: "看一場電影", note: "今晚的片單由對方決定", cost: 10 }
+      ],
+      history: [], redemptions: []
+    };
+
+    const $ = id => document.getElementById(id);
+    const clone = value => JSON.parse(JSON.stringify(value));
+    let state = clone(defaultState);
+    let editingGiftId = null;
+    let toastTimer = null;
+
+    // 即時監聽雲端資料庫變化
+    onSnapshot(cardRef, (docSnap) => {
+      if (docSnap.exists()) {
+        state = Object.assign(clone(defaultState), docSnap.data());
+        if(!state.stampImages) state.stampImages = []; 
+      } else {
+        // 如果是第一次打開，幫資料庫塞入預設值
+        setDoc(cardRef, defaultState);
       }
-      function saveState() {
-        try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-          return true;
-        } catch (error) {
-          showToast("圖片或資料太大，瀏覽器無法保存；請換一張較小的圖片。", true);
+      $("cloudStatus").innerHTML = '<span class="save-dot" style="background:#4b9b68"></span>🟢 已連線雲端同步';
+      render();
+    }, (error) => {
+      console.error(error);
+      $("cloudStatus").innerHTML = '<span class="save-dot" style="background:#c74445"></span>🔴 連線失敗';
+    });
+
+    // 將資料推送到雲端
+    async function saveState() {
+      try {
+        const dataStr = JSON.stringify(state);
+        // Firebase 單一文件上限為 1MB，檢查上傳圖片是否過大
+        if (dataStr.length > 900000) {
+          showToast("儲存失敗！圖片檔案太大，請換小一點的圖片（建議 100KB 內）。", true);
           return false;
         }
+        await setDoc(cardRef, state, { merge: true });
+        return true;
+      } catch (error) {
+        showToast("同步失敗，請檢查網路連線。", true);
+        return false;
       }
-      function uid(prefix) { return prefix + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
-      function escapeHTML(value) {
-        return String(value ?? "").replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
-      }
-      function formatDate(value) {
-        const date = new Date(value);
-        if (Number.isNaN(date.getTime())) return "剛剛";
-        return new Intl.DateTimeFormat("zh-TW", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }).format(date);
-      }
-      function showToast(message, danger) {
-        const toast = $("toast");
-        toast.textContent = message;
-        toast.style.color = danger ? "#9e3d38" : "#65443b";
-        toast.classList.add("show");
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
-      }
-      function render() {
-        $("cardTitle").textContent = state.title || "我們的小約定";
-        $("currentCount").textContent = String(state.current).padStart(2, "0");
-        $("totalCount").textContent = String(state.total).padStart(2, "0");
-        const percent = Math.round((state.current / state.total) * 100);
-        $("progressBar").style.width = percent + "%";
-        $("progressMeta").textContent = percent + "% COLLECTED";
-        const stampCard = $("stampCard");
-        stampCard.classList.toggle("has-background", Boolean(state.background));
-        stampCard.style.backgroundImage = state.background ? "url('" + state.background.replace(/'/g, "\\'") + "')" : "";
-        $("stampGrid").innerHTML = Array.from({ length: state.total }, (_, index) => {
-          const filled = index < state.current;
-          const content = filled && state.stamp ? '<img class="stamp-image" src="' + escapeHTML(state.stamp) + '" alt="已集得的印章">' : filled ? '<span class="stamp-heart">♥</span>' : '<span style="width:6px;height:6px;border-radius:50%;background:rgba(189,130,117,.45)"></span>';
-          return '<div class="stamp-slot ' + (filled ? "filled" : "") + '">' + content + "</div>";
-        }).join("");
-        renderNextGift();
-        renderGifts();
-        renderHistory();
-        renderRecent();
-        $("removeStamp").disabled = state.current <= 0;
-        $("addStamp").disabled = state.current >= state.total;
-      }
-      function renderNextGift() {
-        const gifts = state.gifts.slice().sort((a, b) => a.cost - b.cost);
-        const next = gifts.find(gift => gift.cost > state.current) || gifts[0];
-        const container = $("nextGift");
-        if (!next) {
-          container.innerHTML = '<div class="empty" style="margin-top:22px">還沒有兌換禮物。<br>替你們設定一份期待吧。</div>';
-          return;
-        }
-        const remaining = Math.max(0, next.cost - state.current);
-        container.innerHTML = '<div class="next-gift"><div class="gift-line"><div><h3>' + escapeHTML(next.title) + '</h3>' + (next.note ? '<p class="gift-note">' + escapeHTML(next.note) + '</p>' : '') + '</div><span class="cost">' + next.cost + ' 點</span></div></div><p class="next-copy">' + (remaining ? '再集 <strong>' + remaining + ' 枚</strong>，就能解鎖這份小心意。' : '你們已經集滿，現在就可以兌換囉。') + '</p><button class="btn full" data-redeem="' + escapeHTML(next.id) + '" ' + (state.current < next.cost ? "disabled" : "") + '>' + (state.current < next.cost ? "還差 " + remaining + " 枚" : "現在兌換") + '</button>';
-      }
-      function renderGifts() {
-        const list = $("giftList");
-        if (!state.gifts.length) {
-          list.innerHTML = '<div class="empty" style="grid-column:1/-1">設定一份期待，為每一次集章多一點期待。</div>';
-          return;
-        }
-        list.innerHTML = state.gifts.map(gift => '<article class="gift-item"><div class="gift-item-head"><span class="gift-icon">🎁</span><span class="cost">' + gift.cost + ' 點</span></div><h3 style="margin-top:12px">' + escapeHTML(gift.title) + '</h3><p class="gift-note">' + escapeHTML(gift.note || "一份只屬於你們的小獎勵") + '</p><div class="gift-controls"><button class="btn small" data-redeem="' + escapeHTML(gift.id) + '" ' + (state.current < gift.cost ? "disabled" : "") + '>兌換</button><button class="btn ghost small" data-edit="' + escapeHTML(gift.id) + '">✎</button><button class="btn ghost small" data-delete="' + escapeHTML(gift.id) + '" aria-label="移除">×</button></div></article>').join("");
-      }
-      function renderHistory() {
-        const list = $("historyList");
-        const items = state.history.slice(0, 8);
-        if (!items.length) {
-          list.innerHTML = '<p class="empty">第一枚集章，從今天的小約定開始。</p>';
-          return;
-        }
-        list.innerHTML = items.map(item => {
-          const redeem = item.type === "redeem";
-          return '<div class="history-item ' + (redeem ? "redeem" : "") + '"><span class="history-marker">' + (redeem ? "🎁" : "♥") + '</span><div class="history-text"><p><strong>' + (redeem ? "你們" : "你") + '</strong> ' + escapeHTML(item.note) + '</p><small>' + formatDate(item.at) + (item.delta ? "　" + (item.delta > 0 ? "+" : "") + item.delta + " 點" : "") + '</small></div></div>';
-        }).join("");
-      }
-      function renderRecent() {
-        const pills = $("recentPills");
-        if (!state.redemptions.length) {
-          pills.innerHTML = '<span class="recent-pill">還沒有兌換紀錄</span>';
-          return;
-        }
-        pills.innerHTML = state.redemptions.slice(0, 5).map(item => '<span class="recent-pill">' + escapeHTML(item.title) + ' −' + item.cost + '</span>').join("");
-      }
-      function openModal(id) { $(id).classList.add("open"); }
-      function closeModal(id) { $(id).classList.remove("open"); }
-      function fillSettings() { $("settingsTitleInput").value = state.title; $("settingsTotalInput").value = state.total; }
-      function openGiftModal(gift) {
-        editingGiftId = gift ? gift.id : null;
-        $("giftTitleModal").textContent = gift ? "編輯兌換禮物" : "新增兌換禮物";
-        $("giftNameInput").value = gift ? gift.title : "";
-        $("giftCostInput").value = gift ? gift.cost : 5;
-        $("giftNoteInput").value = gift ? gift.note || "" : "";
-        $("saveGift").textContent = gift ? "儲存變更" : "加入兌換清單";
-        openModal("giftModal");
-        setTimeout(() => $("giftNameInput").focus(), 30);
-      }
-      function addHistory(type, delta, note) {
-        state.history.unshift({ id: uid("h"), type, delta, note, at: new Date().toISOString() });
-        if (state.history.length > 50) state.history.length = 50;
-      }
-      function changeStamp(direction) {
-        const next = direction === "add" ? Math.min(state.total, state.current + 1) : Math.max(0, state.current - 1);
-        if (next === state.current) {
-          showToast(direction === "add" ? "集點卡已經集滿囉。" : "目前沒有可撤銷的點數。", true);
-          return;
-        }
-        const delta = next - state.current;
-        state.current = next;
-        const note = $("stampNote").value.trim() || (delta > 0 ? "集了一點小美好" : "撤銷了一枚集章");
-        addHistory(delta > 0 ? "add" : "remove", delta, note);
-        $("stampNote").value = "";
-        saveState(); render();
-        showToast(delta > 0 ? "已集一枚，這份心意已保存。" : "已撤銷一枚集章。 ");
-      }
-      function redeem(id) {
-        const gift = state.gifts.find(item => item.id === id);
-        if (!gift) return;
-        if (state.current < gift.cost) {
-          showToast("集章還不夠，再累積一些小美好吧。", true);
-          return;
-        }
-        if (!window.confirm("確定要兌換「" + gift.title + "」嗎？會使用 " + gift.cost + " 點。")) return;
-        state.current -= gift.cost;
-        const note = "兌換了「" + gift.title + "」";
-        addHistory("redeem", -gift.cost, note);
-        state.redemptions.unshift({ id: uid("r"), title: gift.title, cost: gift.cost, at: new Date().toISOString() });
-        saveState(); render(); showToast("已兌換「" + gift.title + "」，剩下 " + state.current + " 點。 ");
-      }
-      async function readImage(file) {
-        if (!file) return;
-        if (file.size > 3 * 1024 * 1024) { showToast("圖片請壓縮到 3 MB 以下。", true); return; }
-        const reader = new FileReader();
-        reader.onload = () => { const target = file === $("backgroundUpload").files[0] ? "background" : "stamp"; state[target] = String(reader.result); if (saveState()) { render(); showToast(target === "background" ? "底圖已更新。" : "集章圖案已更新。 "); } };
-        reader.onerror = () => showToast("讀取圖片時發生問題，請重試。", true);
-        reader.readAsDataURL(file);
-      }
+    }
 
-      $("addStamp").addEventListener("click", () => changeStamp("add"));
-      $("removeStamp").addEventListener("click", () => changeStamp("remove"));
-      $("openSettings").addEventListener("click", () => { fillSettings(); openModal("settingsModal"); });
-      $("openSettingsIcon").addEventListener("click", () => { fillSettings(); openModal("settingsModal"); });
-      $("openGift").addEventListener("click", () => openGiftModal());
-      $("openGiftInline").addEventListener("click", () => openGiftModal());
-      $("backgroundUpload").addEventListener("change", event => readImage(event.target.files[0]));
-      $("stampUpload").addEventListener("change", event => readImage(event.target.files[0]));
-      $("saveSettings").addEventListener("click", () => {
-        const title = $("settingsTitleInput").value.trim();
-        const total = Number($("settingsTotalInput").value);
-        if (!title) { showToast("請輸入卡片名稱。", true); return; }
-        if (!Number.isInteger(total) || total < 4 || total > 40) { showToast("集點格數請設定為 4–40 枚。", true); return; }
-        state.title = title; state.total = total; state.current = Math.min(state.current, total);
-        saveState(); render(); closeModal("settingsModal"); showToast("卡片設定已保存。 ");
-      });
-      $("giftForm").addEventListener("submit", event => {
-        event.preventDefault();
-        const title = $("giftNameInput").value.trim();
-        const cost = Number($("giftCostInput").value);
-        const note = $("giftNoteInput").value.trim();
-        if (!title || !Number.isInteger(cost) || cost < 1 || cost > 99) { showToast("請填寫禮物名稱與正確的兌換點數。", true); return; }
-        if (editingGiftId) {
-          const gift = state.gifts.find(item => item.id === editingGiftId);
-          if (gift) Object.assign(gift, { title, cost, note });
-          showToast("禮物設定已更新。 ");
-        } else {
-          state.gifts.push({ id: uid("g"), title, cost, note });
-          showToast("新的兌換禮物已加入。 ");
+    // --- 以下為 UI 渲染與邏輯操作 ---
+    function uid(prefix) { return prefix + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+    function escapeHTML(value) { return String(value ?? "").replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char])); }
+    function formatDate(value) { const date = new Date(value); if (Number.isNaN(date.getTime())) return "剛剛"; return new Intl.DateTimeFormat("zh-TW", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }).format(date); }
+    
+    function showToast(message, danger) {
+      const toast = $("toast"); toast.textContent = message; toast.style.color = danger ? "#9e3d38" : "#65443b";
+      toast.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+    }
+    
+    function render() {
+      $("cardTitle").textContent = state.title || "我們的小約定";
+      $("currentCount").textContent = String(state.current).padStart(2, "0");
+      $("totalCount").textContent = String(state.total).padStart(2, "0");
+      const percent = Math.round((state.current / state.total) * 100);
+      $("progressBar").style.width = percent + "%";
+      $("progressMeta").textContent = percent + "% COLLECTED";
+      
+      const stampCard = $("stampCard");
+      stampCard.classList.toggle("has-background", Boolean(state.background));
+      stampCard.style.backgroundImage = state.background ? "url('" + state.background.replace(/'/g, "\\'") + "')" : "";
+      
+      $("stampGrid").innerHTML = Array.from({ length: state.total }, (_, index) => {
+        const filled = index < state.current;
+        let content = '<span style="width:6px;height:6px;border-radius:50%;background:rgba(189,130,117,.45)"></span>';
+        if (filled) {
+          if (state.stampImages && state.stampImages.length > 0) {
+            const imgSrc = state.stampImages[index % state.stampImages.length];
+            content = '<img class="stamp-image" src="' + escapeHTML(imgSrc) + '" alt="已集得的印章">';
+          } else {
+            content = '<span class="stamp-heart">♥</span>';
+          }
         }
-        saveState(); render(); closeModal("giftModal");
+        return '<div class="stamp-slot ' + (filled ? "filled" : "") + '">' + content + "</div>";
+      }).join("");
+      
+      renderNextGift(); renderGifts(); renderHistory(); renderRecent();
+      $("removeStamp").disabled = state.current <= 0;
+      $("addStamp").disabled = state.current >= state.total;
+    }
+    
+    function renderNextGift() { 
+      const gifts = state.gifts.slice().sort((a, b) => a.cost - b.cost); const next = gifts.find(gift => gift.cost > state.current) || gifts[0]; const container = $("nextGift");
+      if (!next) { container.innerHTML = '<div class="empty" style="margin-top:22px">還沒有兌換禮物。<br>替你們設定一份期待吧。</div>'; return; }
+      const remaining = Math.max(0, next.cost - state.current);
+      container.innerHTML = '<div class="next-gift"><div class="gift-line"><div><h3>' + escapeHTML(next.title) + '</h3>' + (next.note ? '<p class="gift-note">' + escapeHTML(next.note) + '</p>' : '') + '</div><span class="cost">' + next.cost + ' 點</span></div></div><p class="next-copy">' + (remaining ? '再集 <strong>' + remaining + ' 枚</strong>，就能解鎖這份小心意。' : '你們已經集滿，現在就可以兌換囉。') + '</p><button class="btn full" data-redeem="' + escapeHTML(next.id) + '" ' + (state.current < next.cost ? "disabled" : "") + '>' + (state.current < next.cost ? "還差 " + remaining + " 枚" : "現在兌換") + '</button>';
+    }
+    function renderGifts() {
+      const list = $("giftList"); if (!state.gifts.length) { list.innerHTML = '<div class="empty" style="grid-column:1/-1">設定一份期待，為每一次集章多一點期待。</div>'; return; }
+      list.innerHTML = state.gifts.map(gift => '<article class="gift-item"><div class="gift-item-head"><span class="gift-icon">🎁</span><span class="cost">' + gift.cost + ' 點</span></div><h3 style="margin-top:12px">' + escapeHTML(gift.title) + '</h3><p class="gift-note">' + escapeHTML(gift.note || "") + '</p><div class="gift-controls"><button class="btn small" data-redeem="' + escapeHTML(gift.id) + '" ' + (state.current < gift.cost ? "disabled" : "") + '>兌換</button><button class="btn ghost small" data-edit="' + escapeHTML(gift.id) + '">✎</button><button class="btn ghost small" data-delete="' + escapeHTML(gift.id) + '" aria-label="移除">×</button></div></article>').join("");
+    }
+    function renderHistory() {
+      const list = $("historyList"); const items = state.history.slice(0, 8); if (!items.length) { list.innerHTML = '<p class="empty">第一枚集章，從今天的小約定開始。</p>'; return; }
+      list.innerHTML = items.map(item => { const redeem = item.type === "redeem"; return '<div class="history-item ' + (redeem ? "redeem" : "") + '"><span class="history-marker">' + (redeem ? "🎁" : "♥") + '</span><div class="history-text"><p><strong>' + (redeem ? "你們" : "你") + '</strong> ' + escapeHTML(item.note) + '</p><small>' + formatDate(item.at) + (item.delta ? " " + (item.delta > 0 ? "+" : "") + item.delta + " 點" : "") + '</small></div></div>'; }).join("");
+    }
+    function renderRecent() {
+      const pills = $("recentPills"); if (!state.redemptions.length) { pills.innerHTML = '<span class="recent-pill">還沒有兌換紀錄</span>'; return; }
+      pills.innerHTML = state.redemptions.slice(0, 5).map(item => '<span class="recent-pill">' + escapeHTML(item.title) + ' −' + item.cost + '</span>').join("");
+    }
+    
+    function openModal(id) { $(id).classList.add("open"); } function closeModal(id) { $(id).classList.remove("open"); }
+    function fillSettings() { $("settingsTitleInput").value = state.title; $("settingsTotalInput").value = state.total; }
+    function openGiftModal(gift) { editingGiftId = gift ? gift.id : null; $("giftTitleModal").textContent = gift ? "編輯兌換禮物" : "新增兌換禮物"; $("giftNameInput").value = gift ? gift.title : ""; $("giftCostInput").value = gift ? gift.cost : 5; $("giftNoteInput").value = gift ? gift.note || "" : ""; $("saveGift").textContent = gift ? "儲存變更" : "加入兌換清單"; openModal("giftModal"); setTimeout(() => $("giftNameInput").focus(), 30); }
+    function addHistory(type, delta, note) { state.history.unshift({ id: uid("h"), type, delta, note, at: new Date().toISOString() }); if (state.history.length > 50) state.history.length = 50; }
+    
+    function changeStamp(direction) {
+      const next = direction === "add" ? Math.min(state.total, state.current + 1) : Math.max(0, state.current - 1);
+      if (next === state.current) { showToast(direction === "add" ? "集點卡已經集滿囉。" : "目前沒有可撤銷的點數。", true); return; }
+      const delta = next - state.current; state.current = next;
+      const note = $("stampNote").value.trim() || (delta > 0 ? "集了一點小美好" : "撤銷了一枚集章");
+      addHistory(delta > 0 ? "add" : "remove", delta, note); $("stampNote").value = "";
+      render(); saveState(); showToast(delta > 0 ? "已集一枚，這份心意已同步。" : "已撤銷一枚集章。 ");
+    }
+    
+    function redeem(id) {
+      const gift = state.gifts.find(item => item.id === id); if (!gift) return;
+      if (state.current < gift.cost) { showToast("集章還不夠，再累積一些小美好吧。", true); return; }
+      if (!window.confirm("確定要兌換「" + gift.title + "」嗎？會使用 " + gift.cost + " 點。")) return;
+      state.current -= gift.cost; addHistory("redeem", -gift.cost, "兌換了「" + gift.title + "」");
+      state.redemptions.unshift({ id: uid("r"), title: gift.title, cost: gift.cost, at: new Date().toISOString() });
+      render(); saveState(); showToast("已兌換「" + gift.title + "」，剩下 " + state.current + " 點。 ");
+    }
+
+    function readBgImage(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => { state.background = String(reader.result); render(); saveState(); showToast("底圖已同步。"); };
+      reader.readAsDataURL(file);
+    }
+
+    async function readMultipleStamps(files) {
+      if (!files || files.length === 0) return;
+      const fileArray = Array.from(files);
+      const readPromises = fileArray.map(file => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
       });
-      document.addEventListener("click", event => {
-        const redeemButton = event.target.closest("[data-redeem]");
-        const editButton = event.target.closest("[data-edit]");
-        const deleteButton = event.target.closest("[data-delete]");
-        const closeButton = event.target.closest("[data-close]");
-        if (redeemButton) redeem(redeemButton.getAttribute("data-redeem"));
-        if (editButton) openGiftModal(state.gifts.find(item => item.id === editButton.getAttribute("data-edit")));
-        if (deleteButton) {
-          const gift = state.gifts.find(item => item.id === deleteButton.getAttribute("data-delete"));
-          if (gift && window.confirm("確定要移除「" + gift.title + "」嗎？")) { state.gifts = state.gifts.filter(item => item.id !== gift.id); saveState(); render(); showToast("已從兌換清單移除。 "); }
-        }
-        if (closeButton) closeModal(closeButton.getAttribute("data-close"));
-        if (event.target.classList.contains("modal-wrap")) closeModal(event.target.id);
-      });
-      document.addEventListener("keydown", event => { if (event.key === "Escape") { closeModal("settingsModal"); closeModal("giftModal"); } });
-      document.querySelectorAll(".mobile-nav button").forEach(button => button.addEventListener("click", () => { document.getElementById(button.dataset.target).scrollIntoView({ behavior: "smooth", block: "start" }); document.querySelectorAll(".mobile-nav button").forEach(item => item.classList.remove("active")); button.classList.add("active"); }));
-      render();
-    })();
+      try {
+        state.stampImages = await Promise.all(readPromises);
+        render(); saveState(); showToast(`成功同步 ${state.stampImages.length} 款印章圖案！`);
+      } catch (error) { showToast("讀取圖片失敗，請換一張試試看。", true); }
+    }
+
+    $("addStamp").addEventListener("click", () => changeStamp("add"));
+    $("removeStamp").addEventListener("click", () => changeStamp("remove"));
+    $("openSettings").addEventListener("click", () => { fillSettings(); openModal("settingsModal"); });
+    $("openSettingsIcon").addEventListener("click", () => { fillSettings(); openModal("settingsModal"); });
+    $("openGift").addEventListener("click", () => openGiftModal());
+    $("openGiftInline").addEventListener("click", () => openGiftModal());
+    $("backgroundUpload").addEventListener("change", event => readBgImage(event.target.files[0]));
+    $("stampUpload").addEventListener("change", event => readMultipleStamps(event.target.files));
+    
+    $("saveSettings").addEventListener("click", () => {
+      const title = $("settingsTitleInput").value.trim(); const total = Number($("settingsTotalInput").value);
+      if (!title) { showToast("請輸入卡片名稱。", true); return; }
+      if (!Number.isInteger(total) || total < 4 || total > 40) { showToast("集點格數請設定為 4–40 枚。", true); return; }
+      state.title = title; state.total = total; state.current = Math.min(state.current, total);
+      render(); saveState(); closeModal("settingsModal"); showToast("卡片設定已同步。 ");
+    });
+    
+    $("giftForm").addEventListener("submit", event => {
+      event.preventDefault(); const title = $("giftNameInput").value.trim(); const cost = Number($("giftCostInput").value); const note = $("giftNoteInput").value.trim();
+      if (!title || !Number.isInteger(cost) || cost < 1 || cost > 99) { showToast("請填寫禮物名稱與正確的兌換點數。", true); return; }
+      if (editingGiftId) { const gift = state.gifts.find(item => item.id === editingGiftId); if (gift) Object.assign(gift, { title, cost, note }); showToast("禮物設定已同步。 "); } 
+      else { state.gifts.push({ id: uid("g"), title, cost, note }); showToast("新的兌換禮物已加入。 "); }
+      render(); saveState(); closeModal("giftModal");
+    });
+    
+    document.addEventListener("click", event => {
+      const redeemBtn = event.target.closest("[data-redeem]"); const editBtn = event.target.closest("[data-edit]"); const deleteBtn = event.target.closest("[data-delete]"); const closeBtn = event.target.closest("[data-close]");
+      if (redeemBtn) redeem(redeemBtn.getAttribute("data-redeem"));
+      if (editBtn) openGiftModal(state.gifts.find(item => item.id === editBtn.getAttribute("data-edit")));
+      if (deleteBtn) { const gift = state.gifts.find(item => item.id === deleteBtn.getAttribute("data-delete")); if (gift && window.confirm("確定要移除「" + gift.title + "」嗎？")) { state.gifts = state.gifts.filter(item => item.id !== gift.id); render(); saveState(); showToast("已從兌換清單移除。 "); } }
+      if (closeBtn) closeModal(closeBtn.getAttribute("data-close"));
+      if (event.target.classList.contains("modal-wrap")) closeModal(event.target.id);
+    });
+    
+    document.addEventListener("keydown", event => { if (event.key === "Escape") { closeModal("settingsModal"); closeModal("giftModal"); } });
+    document.querySelectorAll(".mobile-nav button").forEach(button => button.addEventListener("click", () => { document.getElementById(button.dataset.target).scrollIntoView({ behavior: "smooth", block: "start" }); document.querySelectorAll(".mobile-nav button").forEach(item => item.classList.remove("active")); button.classList.add("active"); }));
+    
+    render();
   </script>
 </body>
 </html>
