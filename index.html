@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寶貝集點卡</title>
+  <style>
+    /* 基礎設定與重置 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      /* 模擬背景的米白色 */
+      background-color: #f4f0e6;
+      font-family: "PingFang TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      color: #5a504a; /* 深咖啡色字體 */
+    }
+
+    /* 限制手機版面的最大寬度 */
+    .app-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    /* 頂部按鈕區 */
+    .top-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .mode-badge {
+      background-color: #e5dacb;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #7a6c62;
+    }
+
+    /* 卡片主體 */
+    .reward-card {
+      background-color: #ebdcd0; /* 卡片的奶茶色背景 */
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    /* 標題區 */
+    .card-header {
+      margin-bottom: 25px;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      font-family: serif; /* 使用襯線字體更接近原圖質感 */
+    }
+
+    .child-name {
+      font-size: 15px;
+      color: #7a6c62;
+    }
+
+    .divider {
+      border: 0;
+      height: 1px;
+      background-color: #d8c7b8;
+      margin: 15px 0 25px 0;
+    }
+
+    /* 集點網格區 (5欄 x 6列) */
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 切成 5 等份 */
+      gap: 12px; /* 圓圈之間的間距 */
+    }
+
+    /* 單個集點圈圈 */
+    .point-circle {
+      background-color: #ffffff;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1; /* 確保是完美的圓形 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #9c8e81;
+      font-family: serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none; /* 防止點擊時反白數字 */
+    }
+
+    /* 點擊後的樣式 (已集點) */
+    .point-circle.active {
+      background-color: #b5a698; /* 變成深色 */
+      color: #ffffff; /* 數字變白色 */
+      transform: scale(0.95); /* 點擊時有一點縮小特效 */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- 頂部標籤 -->
+    <div class="top-bar">
+      <div class="mode-badge">💻 本機模式</div>
+    </div>
+
+    <!-- 集點卡主體 -->
+    <div class="reward-card">
+      <div class="card-header">
+        <!-- 這裡的文字可以自己修改成你要的暱稱喔 -->
+        <h1 class="card-title">專屬寶貝集點卡</h1>
+        <p class="child-name">給最可愛的女友</p>
+      </div>
+      
+      <hr class="divider">
+
+      <!-- 放置 30 個圈圈的容器 -->
+      <div class="points-grid" id="grid-container">
+        <!-- 這裡的圓圈會由下方的 JavaScript 自動生成 -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 獲取網格容器
+    const gridContainer = document.getElementById('grid-container');
+    const totalPoints = 30; // 總共 30 點
+
+    // 用迴圈一次產生 30 個圓圈
+    for (let i = 1; i <= totalPoints; i++) {
+      // 建立 div 元素
+      const circle = document.createElement('div');
+      circle.classList.add('point-circle');
+      circle.textContent = i; // 填入數字
+
+      // 加入點擊事件：點擊時可以切換「已集點 / 未集點」的狀態
+      circle.addEventListener('click', function() {
+        this.classList.toggle('active');
+      });
+
+      // 將圓圈加入到網格容器中
+      gridContainer.appendChild(circle);
+    }
+  </script>
+
+</body>
+</html>
